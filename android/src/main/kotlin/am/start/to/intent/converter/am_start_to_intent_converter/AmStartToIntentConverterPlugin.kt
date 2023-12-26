@@ -100,6 +100,59 @@ private fun executarComando(comando: String) {
                     intent.type = tipo
                     i += 2
                 }
+                   // ...
+                argumentos[i].startsWith("-i") -> {
+                     val identificador = argumentos[i + 1]
+                     intent.setIdentifier(identificador)
+                     i += 2
+                }
+                argumentos[i].startsWith("-f") -> {
+                      val chave = argumentos[i + 1]
+                      val valor = argumentos[i + 2]
+                      intent.putExtra(chave, valor)
+                      i += 3
+                }
+                argumentos[i].startsWith("-p") -> {
+                     val pacote = argumentos[i + 1]
+                     intent.setPackage(pacote)
+                     i += 2
+                }
+                argumentos[i].startsWith("--ecn") -> {
+                     val chave = argumentos[i + 1]
+                     val valor = argumentos[i + 2]
+                     intent.putExtra(chave, valor)
+                     i += 3
+                }
+                argumentos[i].startsWith("--efa") -> {
+                     val chave = argumentos[i + 1]
+                     val valor = argumentos[i + 2]
+                     intent.putExtra(chave, valor)
+                     i += 3
+                }
+                argumentos[i].startsWith("--eia") -> {
+                     val chave = argumentos[i + 1]
+                     val valor = argumentos[i + 2]
+                     intent.putExtra(chave, valor)
+                     i += 3
+                }
+                argumentos[i].startsWith("--ela") -> {
+                     val chave = argumentos[i + 1]
+                     val valor = argumentos[i + 2]
+                     intent.putExtra(chave, valor)
+                     i += 3
+                }
+                argumentos[i].startsWith("--esa") -> {
+                     val chave = argumentos[i + 1]
+                     val valor = argumentos[i + 2]
+                     intent.putExtra(chave, valor)
+                     i += 3
+                }
+                argumentos[i].startsWith("--esn") -> {
+                     val chave = argumentos[i + 1]
+                     val valor = argumentos[i + 2]
+                     intent.putExtra(chave, valor)
+                     i += 3
+                }
                 argumentos[i].startsWith("--ez") -> {
                     val chave = argumentos[i + 1]
                     val valor = argumentos[i + 2].toBoolean()
@@ -131,6 +184,36 @@ private fun executarComando(comando: String) {
                     i += 3
                 }
                 argumentos[i].startsWith("--es") -> {
+                    val chave = argumentos[i + 1]
+                    val valor = argumentos[i + 2]
+                    intent.putExtra(chave, valor)
+                    i += 3
+                }
+                //
+                argumentos[i].startsWith("--selector") -> {
+                    val selector = argumentos[i + 1]
+                    intent.selector = Intent.parseUri(selector, 0)
+                    i += 2
+                }
+                argumentos[i].startsWith("--efal") -> {
+                    val chave = argumentos[i + 1]
+                    val valor = argumentos[i + 2]
+                    intent.putExtra(chave, valor)
+                    i += 3
+                }
+                argumentos[i].startsWith("--eial") -> {
+                    val chave = argumentos[i + 1]
+                    val valor = argumentos[i + 2]
+                    intent.putExtra(chave, valor)
+                    i += 3
+                }
+                argumentos[i].startsWith("--ela") -> {
+                    val chave = argumentos[i + 1]
+                    val valor = argumentos[i + 2]
+                    intent.putExtra(chave, valor)
+                    i += 3
+                }
+                argumentos[i].startsWith("--esal") -> {
                     val chave = argumentos[i + 1]
                     val valor = argumentos[i + 2]
                     intent.putExtra(chave, valor)
@@ -178,6 +261,99 @@ private fun executarComando(comando: String) {
                 }
                 argumentos[i].startsWith("--activity-exclude-from-recents") -> {
                     intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS)
+                    i++
+                }
+                argumentos[i].startsWith("--grant-prefix-uri-permission") -> {
+                    intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                    i++
+                }
+                argumentos[i].startsWith("--activity-task-on-home") -> {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_TASK_ON_HOME)
+                    i++
+                }
+                argumentos[i].startsWith("--activity-no-history") -> {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
+                    i++
+                }
+                argumentos[i].startsWith("--debug-log-resolution") -> {
+                    intent.addFlags(Intent.FLAG_DEBUG_LOG_RESOLUTION)
+                    i++
+                }
+                argumentos[i].startsWith("--activity-reorder-to-front") -> {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+                    i++
+                }
+                argumentos[i].startsWith("--activity-brought-to-front") -> {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT)
+                    i++
+                }
+                argumentos[i].startsWith("--activity-previous-is-top") -> {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_PREVIOUS_IS_TOP)
+                    i++
+                }
+                argumentos[i].startsWith("--activity-exclude-from-recents") -> {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS)
+                    i++
+                }
+                argumentos[i].startsWith("--activity-no-animation") -> {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                    i++
+                }
+                argumentos[i].startsWith("--attach-agent-bind") -> {
+                    intent.addFlags(Intent.FLAG_ATTACH_AGENT_BIND)
+                    i++
+                }
+                argumentos[i].startsWith("--activity-reset-task-if-needed") -> {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED)
+                    i++
+                }
+                argumentos[i].startsWith("--activity-no-user-action") -> {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_USER_ACTION)
+                    i++
+                }
+                argumentos[i].startsWith("--receiver-registered-only") -> {
+                    intent.addFlags(Intent.FLAG_RECEIVER_REGISTERED_ONLY)
+                    i++
+                }
+                argumentos[i].startsWith("--grant-persistable-uri-permission") -> {
+                    intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION)
+                    i++
+                }
+                argumentos[i].startsWith("--exclude-stopped-packages") -> {
+                    intent.addFlags(Intent.FLAG_EXCLUDE_STOPPED_PACKAGES)
+                    i++
+                }
+                argumentos[i].startsWith("--include-stopped-packages") -> {
+                    intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES)
+                    i++
+                }
+                argumentos[i].startsWith("--receiver-replace-pending") -> {
+                    intent.addFlags(Intent.FLAG_RECEIVER_REPLACE_PENDING)
+                    i++
+                }
+                argumentos[i].startsWith("--activity-clear-when-task-reset") -> {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET)
+                    i++
+                }
+                argumentos[i].startsWith("--activity-launched-from-history") -> {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY)
+                    i++
+                }
+                argumentos[i].startsWith("--receiver-no-abort") -> {
+                    intent.addFlags(Intent.FLAG_RECEIVER_NO_ABORT)
+                    i++
+                }
+                argumentos[i].startsWith("--allow-background-activity-starts") -> {
+                    intent.addFlags(Intent.FLAG_ALLOW_BACKGROUND_ACTIVITY_STARTS)
+                    i++
+                }
+                argumentos[i].startsWith("--sampling") -> {
+                    intent.addFlags(Intent.FLAG_SAMPLING)
+                    i++
+                }
+                 // ...
+                argumentos[i].startsWith("--activity-match-external") -> {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_MATCH_EXTERNAL)
                     i++
                 }
                 else -> {
